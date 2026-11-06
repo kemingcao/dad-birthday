@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#21152f">
+<title>一份给爸爸的生日礼物</title>
+<style>
+:root{--pink:#ff9fbd;--yellow:#ffdc91;--cream:#fff8f0;--muted:#e8dbea;--glass:#ffffff12;--line:#ffffff26}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at 12% 12%,#ff9fbd26,transparent 28%),radial-gradient(circle at 88% 24%,#c9b6ff25,transparent 30%),linear-gradient(145deg,#191426,#352344 55%,#1d1832)}
+button,input{font:inherit}
+button{border:0;cursor:pointer}
+.stars,.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}.stars{z-index:0}.confetti-layer{z-index:10}
+.star{position:absolute;color:#ffffffbf;animation:twinkle 2.5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:1;transform:scale(1.15)}}
+main{position:relative;z-index:1;width:min(100% - 32px,900px);margin:auto;padding:26px 0 48px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 20px}
+.brand{font-size:12px;letter-spacing:.16em;color:#f8ddea}
+.step-count{font-size:12px;color:#ffffff9c}
+.progress{height:3px;background:#ffffff18;border-radius:9px;overflow:hidden;margin-bottom:24px}
+.progress span{display:block;width:20%;height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow));transition:width .4s}
+.page{display:none;animation:appear .55s ease both}.page.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:28px 0 52px}
+.eyebrow,.kicker{display:inline-block;color:#ffe0ec;letter-spacing:.18em;font-size:11px}
+.eyebrow{padding:9px 15px;border:1px solid #ffffff40;border-radius:999px;background:#ffffff0d}
+h1{margin:24px 0 12px;font-size:clamp(38px,9vw,68px);line-height:1.18;letter-spacing:.02em}
+h1 span{display:block;color:var(--yellow)}
+.subtitle{color:var(--muted);font-size:15px;line-height:1.9;margin:8px 0}
+.gift{font-size:76px;line-height:1;margin:34px 0 25px;filter:drop-shadow(0 10px 24px #ff9fbd40);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px) rotate(2deg)}}
+.name-form{display:flex;gap:10px;width:min(100%,430px);margin-top:22px}
+.name-form input{min-width:0;flex:1;padding:15px 18px;border-radius:999px;border:1px solid #ffffff40;background:#ffffff12;color:white;outline:none;text-align:center}
+.name-form input::placeholder{color:#ffffff88}
+.name-form input:focus{border-color:var(--pink);box-shadow:0 0 0 3px #ff9fbd20}
+.primary{padding:14px 24px;border-radius:999px;color:#342044;font-weight:750;background:linear-gradient(135deg,#ffe49b,#ffb6cb);box-shadow:0 8px 24px #ffb1c830;transition:transform .18s,filter .18s}
+.primary:hover{filter:brightness(1.05);transform:translateY(-2px)}.primary:active{transform:scale(.97)}
+.error{min-height:22px;color:#ffc0cf;font-size:12px;margin-top:9px}
+.section-head{text-align:center;margin:20px auto 30px}
+.section-head .kicker{color:var(--pink);margin-bottom:12px}
+h2{margin:0;color:var(--yellow);font-size:clamp(27px,6vw,39px)}
+.intro{color:var(--muted);font-size:14px;line-height:1.8;margin:12px auto 0;max-width:560px}
+
+/* Cake Styles */
+.cake-wrap{margin:30px 0 14px}.cake{position:relative;width:220px;height:190px;margin:auto}
+.plate{position:absolute;bottom:7px;left:5px;width:210px;height:17px;border-radius:50%;background:linear-gradient(#f8d9ef,#b58dbd);box-shadow:0 8px 20px #0004}
+.cake-top{position:absolute;bottom:24px;left:25px;width:170px;height:48px;border-radius:50% 50% 12px 12px/35% 35% 12px 12px;background:#ffb7c9;border:3px solid #ffe0e9}
+.cake-body{position:absolute;bottom:24px;left:25px;width:170px;height:78px;background:linear-gradient(90deg,#f28eae,#ffc2d2 48%,#ec83a5);border-radius:8px 8px 18px 18px}
+.icing{position:absolute;left:25px;bottom:83px;width:170px;height:30px;border-radius:50%;background:#fff0f4;z-index:2}
+.drip{position:absolute;z-index:3;bottom:69px;width:15px;height:25px;background:#fff0f4;border-radius:0 0 10px 10px}.drip.one{left:55px;height:30px}.drip.two{left:105px;height:20px}.drip.three{left:150px;height:27px}
+.sprinkle{position:absolute;z-index:4;width:10px;height:4px;border-radius:5px;transform:rotate(25deg);background:var(--yellow)}
+.s1{left:60px;bottom:96px}.s2{left:95px;bottom:103px;background:#9bdbff}.s3{left:135px;bottom:94px;background:#b9fbc0}.s4{left:160px;bottom:105px;background:#c9b6ff}
+.candle{position:absolute;z-index:5;bottom:122px;left:103px;width:14px;height:42px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 6px,#ff7fa8 6px 12px)}
+.flame{position:absolute;left:2px;top:-23px;width:10px;height:19px;border-radius:60% 40% 60% 40%;transform:rotate(45deg);background:radial-gradient(circle at 65% 65%,#fff7a8 0 18%,#ffb02e 45%,#ff6b35 75%);box-shadow:0 0 18px 7px #ffbe4659;animation:flicker .65s ease-in-out infinite alternate;transform-origin:bottom center}
+@keyframes flicker{from{transform:rotate(38deg) scale(.95)}to{transform:rotate(52deg) scale(1.08)}}
+.cake.blown .flame{display:none}.smoke{display:none;position:absolute;left:4px;top:-29px;color:#ddd;font-size:22px;animation:smoke 1.2s ease-out forwards}.cake.blown .smoke{display:block}
+@keyframes smoke{to{opacity:0;transform:translateY(-32px) scale(1.5)}}
+
+.memory-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.memory-item{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#ffffff0d;box-shadow:0 12px 32px #0002}
+.memory-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(145deg,#ff8fb133,#c9b6ff35);display:flex;align-items:center;justify-content:center}
+.memory-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.memory-item:hover .memory-photo img{transform:scale(1.035)}
+.photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#f5ddeb;font-size:12px;letter-spacing:.05em}
+.photo-placeholder b{font-size:30px;font-weight:400}
+.memory-photo.has-photo .photo-placeholder{display:none}
+.memory-copy{padding:17px 18px 19px;text-align:left}
+.memory-copy h3{margin:0 0 8px;color:var(--yellow);font-size:16px}
+.memory-date{display:block;margin-bottom:8px;color:#ffd6e5;font-size:12px;letter-spacing:.3px}
+.memory-copy p{margin:0;color:#f5eaf3;font-size:13px;line-height:1.85;white-space:pre-line}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 8px}
+.quiz-card{max-width:650px;margin:0 auto;padding:clamp(22px,5vw,36px);border:1px solid var(--line);border-radius:24px;background:#ffffff0d;box-shadow:0 16px 45px #0002;text-align:left}
+.quiz-progress{font-size:12px;color:#ffd6e5;letter-spacing:.08em;margin-bottom:14px}
+.question{font-size:20px;line-height:1.6;color:var(--cream);margin:0 0 22px}
+.answers{display:grid;gap:11px}
+.answer{width:100%;padding:14px 16px;border:1px solid #ffffff30;border-radius:14px;background:#ffffff0b;color:#fff4f7;text-align:left;transition:.2s}
+.answer:hover{border-color:#ffb4ca;background:#ff9fbd14}
+.answer.selected{border-color:var(--yellow);background:#ffdc911c}
+.answer.correct{border-color:#9de4b0;background:#9de4b014}
+.answer.wrong{border-color:#ff9eaa;background:#ff9eaa14}
+.feedback{min-height:64px;margin-top:20px;font-size:16px;color:#f9d7e4;line-height:1.6}
+.feedback strong{display:block;font-size:20px;margin-bottom:6px;letter-spacing:1px}
+.correct-text{color:#9de4b0}
+.wrong-text{color:#ff9eaa}
+.quiz-actions{display:flex;justify-content:flex-end;margin-top:14px}
+.locked-note{text-align:center;color:#ffffff9c;font-size:12px;margin:18px 0 0}
+.letter{max-width:700px;margin:0 auto;padding:clamp(24px,6vw,44px);border:1px solid #ffffff30;border-radius:24px;background:linear-gradient(145deg,#ffffff18,#ffffff0b);box-shadow:0 18px 55px #0002;text-align:left;color:#fff4f7;font-size:15px;line-height:2.15}
+.letter p{margin:0 0 16px}.letter p:last-child{margin-bottom:0}
+.signature{color:var(--yellow);font-weight:750;text-align:right;margin-top:22px!important}
+footer{text-align:center;margin-top:48px;color:#ffffff70;font-size:11px;letter-spacing:.16em}
+.confetti{position:absolute;top:-20px;width:9px;height:14px;opacity:.95;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(760deg);opacity:.9}}
+@media(max-width:620px){main{width:min(100% - 24px,900px)}.topbar{padding-bottom:15px}.memory-list{grid-template-columns:1fr;gap:14px}.memory-item{display:grid;grid-template-columns:40% 1fr;align-items:stretch}.memory-photo{height:100%;min-height:150px;aspect-ratio:auto}.memory-copy{padding:14px 13px}.memory-copy h3{font-size:14px}.memory-copy p{font-size:12px;line-height:1.7}.name-form{flex-direction:column}.name-form .primary{width:100%}.hero{min-height:75vh}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true" id="stars"></div><div class="confetti-layer" aria-hidden="true" id="confetti"></div>
+<main>
+  <div class="topbar"><div class="brand">A LITTLE GIFT, WITH LOVE</div><div class="step-count" id="stepCount">01 / 05</div></div>
+  <div class="progress"><span id="progressBar"></span></div>
+
+  <!-- 第一页：输入名字 -->
+  <section class="page active" id="page1">
+    <div class="hero">
+      <div class="eyebrow">A LITTLE SURPRISE FOR YOU</div>
+      <h1>有一份礼物，<span>想送给你。</span></h1>
+      <p class="subtitle">它藏着一些珍贵的回忆，<br>还有几句一直想对你说的话。</p>
+      <div class="gift" aria-hidden="true">🎁</div>
+      <p class="subtitle">请输入爸爸的名字，开启这份生日礼物。</p>
+      <form class="name-form" id="nameForm">
+        <input id="dadName" type="text" maxlength="20" autocomplete="off" placeholder="请输入爸爸的名字" aria-label="爸爸的名字">
+        <button class="primary" type="submit">开启生日礼物 ✨</button>
+      </form>
+      <div class="error" id="nameError" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 第二页：蛋糕和许愿 -->
+  <section class="page" id="page2">
+    <div class="hero" style="min-height:75vh;">
+      <div class="eyebrow">HAPPY BIRTHDAY</div>
+      <h1>生日快乐，<span>爸爸！</span></h1>
+      <p class="subtitle">今天的主角是你！<br>准备好接收接下来的惊喜了吗？</p>
+      <div class="cake-wrap" aria-label="一只生日蛋糕">
+        <div class="cake" id="cake">
+          <div class="plate"></div><div class="cake-body"></div><div class="cake-top"></div><div class="icing"></div>
+          <div class="drip one"></div><div class="drip two"></div><div class="drip three"></div>
+          <div class="sprinkle s1"></div><div class="sprinkle s2"></div><div class="sprinkle s3"></div><div class="sprinkle s4"></div>
+          <div class="candle"><div class="flame"></div><div class="smoke">〰</div></div>
+        </div>
+      </div>
+      <p class="subtitle" id="hint">先许个愿望，再点击下面的按钮吹蜡烛吧！</p>
+      <div class="actions" style="margin-top: 25px;">
+        <button class="primary" id="blowBtn">🎂 吹灭蜡烛</button>
+        <button class="primary" onclick="goTo(3)">继续拆礼物：爸爸专属问答 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第三页：问答环节（调换到前面） -->
+  <section class="page" id="page3">
+    <div class="section-head">
+      <div class="kicker">CHAPTER 01 · JUST FOR DAD</div>
+      <h2>爸爸专属问答</h2>
+      <p class="intro">考考爸爸的记忆力！这几道题都藏着我们共同的回忆。<br>无论选什么，都能解锁下一份礼物。</p>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-progress" id="quizProgress">QUESTION 1 / 3</div>
+      <p class="question" id="questionText"></p>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <div class="quiz-actions"><button class="primary" id="nextQuestion" disabled>确认答案</button></div>
+    </div>
+    <p class="locked-note" id="lockedNote">🎁 完成答题，解锁时光档案</p>
+  </section>
+
+  <!-- 第四页：照片墙（调换到信件之前） -->
+  <section class="page" id="page4">
+    <div class="section-head">
+      <div class="kicker">CHAPTER 02 · OUR MEMORIES</div>
+      <h2 id="archiveTitle">爸爸和我的时光档案</h2>
+      <p class="intro">有些时光已经走远，但照片替我们好好收藏着。<br>一起回到那些有爸爸陪伴的日子。</p>
+    </div>
+    <div class="memory-list">
+      <article class="memory-item"><div class="memory-photo"><img src="photo1.jpg" alt="爸爸带着我学轮滑" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 1</div></div><div class="memory-copy"><h3>爸爸牵着我，学会向前</h3><span class="memory-date">2005年3月27日</span><p>那时候的我还小，轮滑也还不会。你陪着我，一点一点练习。现在想起来，很多第一次的背后，都有你的陪伴。</p></div></article>
+      <article class="memory-item"><div class="memory-photo"><img src="photo2.jpg" alt="我和爸爸在小船上" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 2</div></div><div class="memory-copy"><h3>和爸爸一起，乘着小船</h3><span class="memory-date">2006年5月6日</span><p>小船载着我们慢慢向前，那时候的快乐很简单，只要有爸爸在身边，就觉得一切都很有趣。</p></div></article>
+      <article class="memory-item"><div class="memory-photo"><img src="photo3.jpg" alt="我和爸爸在张家界坐索道" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 3</div></div><div class="memory-copy"><h3>和爸爸一起，去看更远的风景</h3><span class="memory-date">2008年 · 张家界</span><p>第一次记忆里的索道和远方的风景，也有爸爸陪在身边。长大以后才发现，最珍贵的不只是风景，还有一起看风景的人。</p></div></article>
+      <article class="memory-item"><div class="memory-photo"><img src="photo4.jpg" alt="我和爸爸在凤凰古城" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 4</div></div><div class="memory-copy"><h3>凤凰古城里的父女时光</h3><span class="memory-date">2008年 · 凤凰古城</span><p>那一年，我们一起走过古城的街巷。照片里的时光已经过去很久，但和爸爸一起旅行的记忆，一直都在。</p></div></article>
+      <article class="memory-item"><div class="memory-photo"><img src="photo5.jpg" alt="我和爸爸在南岳衡山看云海" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 5</div></div><div class="memory-copy"><h3>和爸爸一起，看过云海</h3><span class="memory-date">2010年8月20日 · 南岳衡山</span><p>山很高，云海很美，而我身边有爸爸。现在回头看，那些一起走过的路，都成了很珍贵的礼物。</p></div></article>
+      <article class="memory-item"><div class="memory-photo"><img src="photo6.jpg" alt="我给爸爸打扮了一下" onload="this.parentElement.classList.add('has-photo')" onerror="this.style.display='none'"><div class="photo-placeholder"><b>♡</b>照片 6</div></div><div class="memory-copy"><h3>今天换我来给爸爸打扮</h3><span class="memory-date">2014年1月1日</span><p>小时候总是爸爸照顾我，这一次换我来给爸爸打扮一下！不知道当时的你是什么心情，但这一定是我记忆里很可爱的一幕。</p></div></article>
+    </div>
+    <div class="actions"><button class="primary" onclick="goTo(5)">继续拆礼物：一封信 →</button></div>
+  </section>
+
+  <!-- 第五页：一封信 -->
+  <section class="page" id="page5">
+    <div class="section-head">
+      <div class="kicker">CHAPTER 03 · A LETTER FROM MY HEART</div>
+      <h2>最后，想对你说</h2>
+      <p class="intro">这封信没有什么华丽的词句，<br>只是一些一直放在心里的话。</p>
+    </div>
+    <div class="letter">
+      <p>爸爸，感谢你这么多年来的爱与付出。</p>
+      <p>虽然你没能每天都陪伴在我身边，可我感受到的你的爱一点也不少。虽然你没有总是告诉我，但是我明白你希望我过得好、过得幸福。</p>
+      <p>我想告诉你的是，我一直是有志向的人，我一定不会让你失望的。我也一定会变成让你们可以依靠的人，让你不再那么辛苦。</p>
+      <p>希望以后的日子你能每天都开心，身体健康。</p>
+      <p>请永远记得：你是我们最重要的人。</p>
+      <p class="signature">
+        爸爸，生日快乐！我爱你！ ❤️<br>
+        <span style="display:block; margin-top:14px; font-weight:normal; font-size:14px; color:#ffd6e5;">爱你的乐乐<br>2026年11月7日</span>
+      </p>
+    </div>
+    <div class="actions"><button class="primary" onclick="celebrate()">🎉 再放一次礼花</button></div>
+  </section>
+  <footer>MADE WITH LOVE · JUST FOR YOU</footer>
+</main>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<34;i++){const s=document.createElement('span');s.className='star';s.textContent=Math.random()>.5?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(8+Math.random()*12)+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
+function celebrate(){const layer=document.getElementById('confetti'),colors=['#ffdc91','#ff9fbd','#c9b6ff','#9be7ff','#b9fbc0','#fff1a8'];for(let i=0;i<95;i++){const p=document.createElement('i');p.className='confetti';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.borderRadius=Math.random()>.5?'50%':'2px';p.style.setProperty('--drift',(Math.random()*180-90)+'px');p.style.animationDuration=(2.2+Math.random()*2.2)+'s';p.style.animationDelay=Math.random()*.7+'s';layer.appendChild(p);setTimeout(()=>p.remove(),5200)}}
+
+let currentPage=1;
+function goTo(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+  currentPage=n;
+  document.getElementById('stepCount').textContent=String(n).padStart(2,'0')+' / 05';
+  document.getElementById('progressBar').style.width=(n*20)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+  // 到达蛋糕页或者信件页时，放一次礼花
+  if(n===2 || n===5) celebrate();
+}
+
+// 登录判断
+document.getElementById('nameForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('dadName').value.trim();
+  if(name !== '曹帅'){
+    document.getElementById('nameError').textContent='请输入爸爸的名字哦';
+    return;
+  }
+  document.getElementById('nameError').textContent='';
+  document.getElementById('archiveTitle').textContent='爸爸和我的时光档案';
+  goTo(2); // 前往第二页（蛋糕许愿）
+});
+
+// 吹蜡烛逻辑
+let blown=false;
+document.getElementById('blowBtn').addEventListener('click',()=>{
+  blown=!blown;
+  document.getElementById('cake').classList.toggle('blown',blown);
+  document.getElementById('hint').textContent=blown?'愿望已经送达！愿你新的一岁平安顺遂 ✨':'蜡烛重新点亮啦，再许一个愿望吧！';
+  document.getElementById('blowBtn').textContent=blown?'🕯️ 重新点亮蜡烛':'🎂 吹灭蜡烛';
+  if(blown) celebrate();
+});
+
+// 问答逻辑
+const quiz=[
+ {q:'我给你准备过什么生日礼物？',a:['酒','腰带','水晶球'],correct:-1,tip:'我都送过！'},
+ {q:'我和爸爸两个人一起去哪里的游乐园玩过？',a:['郑州方特','洛阳','广州长隆'],correct:2,tip:'我说要去玩爸爸就带我去啦！'},
+ {q:'爸爸今年多少岁？',a:['50岁','51岁','18岁'],correct:2,tip:'爸爸永远年轻！'}
+];
+let qIndex=0,selected=-1;
+const qText=document.getElementById('questionText'),answers=document.getElementById('answers'),qProgress=document.getElementById('quizProgress'),feedback=document.getElementById('feedback'),nextBtn=document.getElementById('nextQuestion');
+
+function renderQuestion(){
+  const q=quiz[qIndex];
+  selected=-1;
+  qProgress.textContent='QUESTION '+(qIndex+1)+' / '+quiz.length;
+  qText.textContent=q.q;
+  answers.innerHTML='';
+  q.a.forEach((a,i)=>{
+    const b=document.createElement('button');
+    b.className='answer';
+    b.textContent=String.fromCharCode(65+i)+'. '+a;
+    b.addEventListener('click',()=>{
+      selected=i;
+      document.querySelectorAll('.answer').forEach(x=>x.classList.remove('selected'));
+      b.classList.add('selected');
+      feedback.textContent='';
+      nextBtn.disabled=false;
+    });
+    answers.appendChild(b);
+  });
+  feedback.textContent='';
+  nextBtn.disabled=true;
+  nextBtn.textContent='确认答案';
+}
+
+nextBtn.addEventListener('click',()=>{
+  if(selected<0)return;
+  const q=quiz[qIndex],buttons=[...document.querySelectorAll('.answer')];
+  let isCorrect = false;
+  
+  buttons.forEach((b,i)=>{
+    b.disabled=true;
+    if(q.correct === -1) {
+      // 选什么都对
+      if(i === selected) {
+        b.classList.add('correct');
+        isCorrect = true;
+      }
+    } else {
+      if(i===q.correct) {
+        b.classList.add('correct');
+      } else if(i===selected) {
+        b.classList.add('wrong');
+      }
+    }
+  });
+  
+  if (q.correct !== -1 && selected === q.correct) {
+    isCorrect = true;
+  }
+  
+  // 插入放大号字体的 答对啦/答错啦 提示
+  feedback.innerHTML = `<strong class="${isCorrect ? 'correct-text' : 'wrong-text'}">${isCorrect ? '答对啦！' : '答错啦！'}</strong>${q.tip}`;
+  
+  nextBtn.textContent=qIndex===quiz.length-1?'查看结果':'下一题';
+  nextBtn.onclick=()=>{
+    qIndex++;
+    if(qIndex<quiz.length){
+      nextBtn.onclick=null;
+      renderQuestion();
+    }else{
+      showQuizResult();
+    }
+  }
+});
+
+function showQuizResult(){
+  qProgress.textContent='A LITTLE MEMORY TEST';
+  qText.textContent='答题结束啦！这些回忆值得我们一起珍藏。';
+  answers.innerHTML='';
+  feedback.innerHTML='<strong style="color:#ffd6e5;">接下来，一起翻开我们的时光档案吧！</strong>';
+  nextBtn.disabled=false;
+  nextBtn.textContent='查看时光档案 ❤️';
+  nextBtn.onclick=()=>{
+    goTo(4); // 前往第四页（照片墙）
+  }
+}
+renderQuestion();
+</script>
+</body>
+</html>
