@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#21152f">
+<title>爸爸，生日快乐！</title>
+<style>
+:root{--pink:#ff8fb1;--yellow:#ffd166;--cream:#fff7ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at 15% 15%,#ff8fb138,transparent 28%),radial-gradient(circle at 85% 25%,#c9b6ff33,transparent 30%),linear-gradient(145deg,#1b1428,#342044 55%,#1d1832)}
+.stars,.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}.stars{z-index:0}.confetti-layer{z-index:5}
+.star{position:absolute;color:#ffffffbf;animation:twinkle 2.5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:1;transform:scale(1.15)}}
+main{position:relative;z-index:1;width:min(100% - 32px,760px);margin:auto;padding:38px 0 36px;text-align:center}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.eyebrow{display:inline-block;padding:8px 15px;border:1px solid #ffffff40;border-radius:999px;color:#ffe1ec;letter-spacing:.12em;font-size:12px;background:#ffffff12}
+h1{margin:22px 0 8px;font-size:clamp(38px,10vw,66px);line-height:1.12;text-shadow:0 5px 28px #ff8fb140}
+h1 span{color:var(--yellow);display:block}
+.subtitle{color:#e7d9ee;font-size:16px;line-height:1.8;margin:8px 0 0}
+.cake-wrap{margin:30px 0 14px}.cake{position:relative;width:220px;height:190px;margin:auto}
+.plate{position:absolute;bottom:7px;left:5px;width:210px;height:17px;border-radius:50%;background:linear-gradient(#f8d9ef,#b58dbd);box-shadow:0 8px 20px #0004}
+.cake-top{position:absolute;bottom:24px;left:25px;width:170px;height:48px;border-radius:50% 50% 12px 12px/35% 35% 12px 12px;background:#ffb7c9;border:3px solid #ffe0e9}
+.cake-body{position:absolute;bottom:24px;left:25px;width:170px;height:78px;background:linear-gradient(90deg,#f28eae,#ffc2d2 48%,#ec83a5);border-radius:8px 8px 18px 18px}
+.icing{position:absolute;left:25px;bottom:83px;width:170px;height:30px;border-radius:50%;background:#fff0f4;z-index:2}
+.drip{position:absolute;z-index:3;bottom:69px;width:15px;height:25px;background:#fff0f4;border-radius:0 0 10px 10px}.drip.one{left:55px;height:30px}.drip.two{left:105px;height:20px}.drip.three{left:150px;height:27px}
+.sprinkle{position:absolute;z-index:4;width:10px;height:4px;border-radius:5px;transform:rotate(25deg);background:var(--yellow)}
+.s1{left:60px;bottom:96px}.s2{left:95px;bottom:103px;background:#9bdbff}.s3{left:135px;bottom:94px;background:#b9fbc0}.s4{left:160px;bottom:105px;background:#c9b6ff}
+.candle{position:absolute;z-index:5;bottom:122px;left:103px;width:14px;height:42px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 6px,#ff7fa8 6px 12px)}
+.flame{position:absolute;left:2px;top:-23px;width:10px;height:19px;border-radius:60% 40% 60% 40%;transform:rotate(45deg);background:radial-gradient(circle at 65% 65%,#fff7a8 0 18%,#ffb02e 45%,#ff6b35 75%);box-shadow:0 0 18px 7px #ffbe4659;animation:flicker .65s ease-in-out infinite alternate;transform-origin:bottom center}
+@keyframes flicker{from{transform:rotate(38deg) scale(.95)}to{transform:rotate(52deg) scale(1.08)}}
+.cake.blown .flame{display:none}.smoke{display:none;position:absolute;left:4px;top:-29px;color:#ddd;font-size:22px;animation:smoke 1.2s ease-out forwards}.cake.blown .smoke{display:block}
+@keyframes smoke{to{opacity:0;transform:translateY(-32px) scale(1.5)}}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+button{border:0;border-radius:999px;padding:14px 22px;min-height:48px;font-size:15px;font-weight:700;cursor:pointer;transition:transform .18s;-webkit-tap-highlight-color:transparent}
+button:active{transform:scale(.96)}.primary{color:#342044;background:linear-gradient(135deg,#ffe08a,#ffb4c8);box-shadow:0 8px 24px #ffb1c840}
+.section{margin:30px 0 64px}.section-kicker{color:var(--pink);font-size:12px;letter-spacing:.2em;margin-bottom:10px}
+h2{margin:0 0 22px;color:var(--yellow);font-size:clamp(25px,6vw,34px)}
+.blessing{padding:26px 22px;border-radius:22px;text-align:left;line-height:2;font-size:16px;color:#fff4f7;background:#ffffff17;border:1px solid #ffffff2e;box-shadow:0 15px 45px #0002}
+.blessing p{margin:0 0 14px}.blessing p:last-child{margin-bottom:0}.signature{color:var(--yellow);font-weight:700;text-align:right;margin-top:20px!important}
+.memory-list{display:flex;flex-direction:column;gap:16px}
+.memory-item{display:grid;grid-template-columns:minmax(112px,42%) 1fr;gap:16px;align-items:center;padding:12px;border:1px solid #ffffff26;border-radius:20px;background:#ffffff0d;text-align:left;box-shadow:0 10px 28px #0002}
+.memory-photo{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:13px;background:linear-gradient(145deg,#ff8fb133,#c9b6ff35);display:flex;align-items:center;justify-content:center}
+.memory-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-placeholder{display:flex;flex-direction:column;align-items:center;gap:6px;color:#f5ddeb;font-size:12px;letter-spacing:.05em}
+.photo-placeholder b{font-size:30px;font-weight:400}
+.memory-photo.has-photo .photo-placeholder{display:none}
+.memory-copy h3{margin:0 0 8px;color:var(--yellow);font-size:16px}
+.memory-date{display:block;margin-bottom:7px;color:#ffd6e5;font-size:12px;letter-spacing:.4px}.memory-copy p{margin:0;color:#f5eaf3;font-size:14px;line-height:1.8;white-space:pre-line}
+.photo-note{color:#ffffffa6;font-size:12px;line-height:1.7;margin-top:16px}
+footer{margin-top:42px;color:#ffffff8c;font-size:12px;letter-spacing:.08em}
+.confetti{position:absolute;top:-20px;width:9px;height:14px;opacity:.95;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(760deg);opacity:.9}}
+@media(max-width:420px){.subtitle{font-size:14px}.cake-wrap{margin:22px 0 10px}.blessing{padding:21px 17px;font-size:15px}.memory-item{grid-template-columns: minmax(105px,40%) 1fr;gap:12px;padding:10px}.memory-copy h3{font-size:15px}.memory-copy p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true" id="stars"></div><div class="confetti-layer" aria-hidden="true" id="confetti"></div>
+<main>
+<section class="hero">
+<div class="eyebrow">A LITTLE SURPRISE FOR YOU</div>
+<h1>生日快乐，<span>爸爸！</span></h1>
+<p class="subtitle">今天的主角是你！<br>准备好接收一份小小的惊喜了吗？</p>
+<div class="cake-wrap" aria-label="一只生日蛋糕"><div class="cake" id="cake">
+<div class="plate"></div><div class="cake-body"></div><div class="cake-top"></div><div class="icing"></div>
+<div class="drip one"></div><div class="drip two"></div><div class="drip three"></div>
+<div class="sprinkle s1"></div><div class="sprinkle s2"></div><div class="sprinkle s3"></div><div class="sprinkle s4"></div>
+<div class="candle"><div class="flame"></div><div class="smoke">〰</div></div></div></div>
+<p class="subtitle" id="hint">先许个愿望，再点击下面的按钮吹蜡烛吧！</p>
+<div class="actions"><button class="primary" id="blowBtn">🎂 吹灭蜡烛</button><button class="primary" id="celebrateBtn">🎉 再放一次礼花</button></div>
+</section>
+
+<section class="section" id="message">
+<div class="section-kicker">A LETTER FROM MY HEART</div><h2>想对你说的话</h2>
+<div class="blessing">
+<p>爸爸，感谢你这么多年来的爱与付出。</p>
+<p>虽然你没能每天都陪伴在我身边，可我感受到的你的爱一点也不少。虽然你没有总是告诉我，但是我明白你希望我过得好、过得幸福。</p>
+<p>我想告诉你的是，我一直是有志向的人，我一定不会让你失望的。我也一定会变成让你们可以依靠的人，让你不再那么辛苦。</p>
+<p>希望以后的日子你能每天都开心，身体健康。</p>
+<p>请永远记得：你是我们最重要的人。</p>
+<p class="signature">爸爸，生日快乐！我爱你！ ❤️</p>
+</div></section>
+
+<section class="section" id="photos">
+<div class="section-kicker">OUR LITTLE MOMENTS</div><h2>爸爸和我 · 时光收藏册</h2>
+<div class="memory-list">
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo1.jpg" alt="爸爸带着我学轮滑" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 1</div></div><div class="memory-copy"><h3>爸爸牵着我，学会向前</h3><p><span class="memory-date">2005年3月27日</span>那时候的我还小，轮滑也还不会。你陪着我，一点一点练习。现在想起来，很多第一次的背后，都有你的陪伴。</p></div></article>
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo2.jpg" alt="我和爸爸在小船上" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 2</div></div><div class="memory-copy"><h3>和爸爸一起，乘着小船</h3><p><span class="memory-date">2006年5月6日</span>小船载着我们慢慢向前，那时候的快乐很简单，只要有爸爸在身边，就觉得一切都很有趣。</p></div></article>
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo3.jpg" alt="我和爸爸在张家界坐索道" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 3</div></div><div class="memory-copy"><h3>和爸爸一起，去看更远的风景</h3><p><span class="memory-date">2008年 · 张家界</span>第一次记忆里的索道和远方的风景，也有爸爸陪在身边。长大以后才发现，最珍贵的不只是风景，还有一起看风景的人。</p></div></article>
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo4.jpg" alt="我和爸爸在凤凰古城" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 4</div></div><div class="memory-copy"><h3>凤凰古城里的父女时光</h3><p><span class="memory-date">2008年 · 凤凰古城</span>那一年，我们一起走过古城的街巷。照片里的时光已经过去很久，但和爸爸一起旅行的记忆，一直都在。</p></div></article>
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo5.jpg" alt="我和爸爸在南岳衡山看云海" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 5</div></div><div class="memory-copy"><h3>和爸爸一起，看过云海</h3><p><span class="memory-date">2010年8月20日 · 南岳衡山</span>山很高，云海很美，而我身边有爸爸。现在回头看，那些一起走过的路，都成了很珍贵的礼物。</p></div></article>
+<article class="memory-item"><div class="memory-photo"><img src="photos/photo6.jpg" alt="我给爸爸打扮了一下" onload="this.parentElement.classList.add('has-photo')" onerror="this.remove()"><div class="photo-placeholder"><b>♡</b>照片 6</div></div><div class="memory-copy"><h3>今天换我来给爸爸打扮</h3><p><span class="memory-date">2014年1月1日</span>小时候总是爸爸照顾我，这一次换我来给爸爸打扮一下！不知道当时的你是什么心情，但这一定是我记忆里很可爱的一幕。</p></div></article>
+</div>
+
+</section>
+<footer>MADE WITH LOVE · JUST FOR YOU</footer>
+</main>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<30;i++){const s=document.createElement('span');s.className='star';s.textContent=Math.random()>.5?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(8+Math.random()*12)+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
+function celebrate(){const layer=document.getElementById('confetti'),colors=['#ffd166','#ff8fb1','#c9b6ff','#9be7ff','#b9fbc0','#fff1a8'];for(let i=0;i<85;i++){const p=document.createElement('i');p.className='confetti';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.borderRadius=Math.random()>.5?'50%':'2px';p.style.setProperty('--drift',(Math.random()*180-90)+'px');p.style.animationDuration=(2.2+Math.random()*2.2)+'s';p.style.animationDelay=Math.random()*.7+'s';layer.appendChild(p);setTimeout(()=>p.remove(),5200)}}
+let blown=false;document.getElementById('blowBtn').addEventListener('click',()=>{blown=!blown;document.getElementById('cake').classList.toggle('blown',blown);document.getElementById('hint').textContent=blown?'愿望已经送达！愿你新的一岁平安顺遂 ✨':'蜡烛重新点亮啦，再许一个愿望吧！';document.getElementById('blowBtn').textContent=blown?'🕯️ 重新点亮蜡烛':'🎂 吹灭蜡烛';celebrate()});
+document.getElementById('celebrateBtn').addEventListener('click',celebrate);
+</script>
+</body>
+</html>
